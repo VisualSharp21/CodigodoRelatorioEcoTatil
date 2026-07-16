@@ -1,0 +1,125 @@
+\documentclass[aspectratio=169]{beamer} % Formato widescreen
+\usetheme{Madrid} % Tema limpo e profissional
+\usecolortheme{default}
+
+% Pacotes para português e gráficos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+% Informações da Capa
+\title[Projeto EcoTátil]{EcoTátil: Alfabetização em Braille Multimodal}
+\subtitle{Pitch para Investidores-Anjos - Fase 3}
+\author[Jumpers]{Marcelo Arbage, Theo Mello, Thiago Araujo e Rafael Collares}
+\institute[UFPA]{
+  Empresa Jumpers - Tecnologia Assistiva\\
+  Universidade Federal do Pará (UFPA)
+}
+\date{17 de Julho de 2026}
+
+\begin{document}
+
+% Slide 1: Capa
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Slide 2: Índice
+\begin{frame}{Agenda}
+  \tableofcontents
+\end{frame}
+
+% Seção 1: O Problema
+\section{O Problema}
+\begin{frame}{O Desafio da Alfabetização Inclusiva}
+  \begin{itemize}
+    \item \textbf{A Dor:} Pessoas com deficiência visual enfrentam grandes barreiras na alfabetização tátil.
+    \item \textbf{O Gap de Mercado:} O uso exclusivo de leitores de tela não consolida habilidades de leitura e escrita, afetando o desenvolvimento cognitivo.
+    \item \textbf{Custo:} Dispositivos de interface Braille (displays) costumam ser extremamente caros e inacessíveis para o público geral e escolas públicas.
+  \end{itemize}
+\end{frame}
+
+% Seção 2: A Solução
+\section{A Solução: EcoTátil}
+\begin{frame}{Conheça o EcoTátil}
+  \begin{itemize}
+    \item \textbf{O que é:} Uma célula Braille eletrônica interativa de baixo custo.
+    \item \textbf{Diferencial - Aprendizado Multimodal:} Combina resposta tátil imediata com feedback auditivo.
+    \item \textbf{Como funciona:} O usuário insere um caractere, o sistema processa a informação, eleva os pinos formando a letra em Braille e emite o som correspondente.
+  \end{itemize}
+  % \begin{figure}
+  %   \includegraphics[width=0.4\textwidth]{sua_imagem_do_gabinete_3D.png}
+  %   \caption{Gabinete impresso em 3D}
+  % \end{figure}
+\end{frame}
+
+% Seção 3: Viabilidade Técnica
+\section{Viabilidade Técnica (MVP)}
+\begin{frame}{Arquitetura e Componentes}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \textbf{Hardware Estratégico}
+    \begin{itemize}
+      \item Microcontrolador \textbf{ESP32-S} (substituindo o Arduino por conectividade nativa).
+      \item 6 Micro servomotores independentes com placa PCA9685.
+      \item Módulo DFPlayer Mini para o feedback sonoro.
+    \end{itemize}
+    
+    \column{0.5\textwidth}
+    \textbf{Validação}
+    \begin{itemize}
+      \item Simulação de circuito e firmware validada na plataforma \textbf{Wokwi}.
+      \item Placa de Circuito Impresso (PCI) própria projetada no \textbf{KiCad}.
+      \item Design ergonômico impresso em 3D.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% Seção 4: Custos e Investimento
+\section{Custos e Modelo de Negócio}
+\begin{frame}{Estimativa de Custos do Protótipo}
+  \begin{itemize}
+    \item O projeto foi concebido com foco na viabilidade econômica usando componentes de prateleira (off-the-shelf).
+  \end{itemize}
+  
+  \vspace{0.5cm}
+  \begin{table}[]
+      \centering
+      \begin{tabular}{lc}
+           \toprule
+           \textbf{Categoria} & \textbf{Custo Estimado (R\$)} \\
+           \midrule
+           Processamento (ESP32-S) & 55,00 \\
+           Atuação (Servos + Driver) & 120,00 \\
+           Áudio (DFPlayer + Falante) & 30,00 \\
+           Alimentação e Estrutura & 202,00 \\
+           \midrule
+           \textbf{Custo Total de Produção (Unidade)} & \textbf{407,00} \\
+           \bottomrule
+      \end{tabular}
+  \end{table}
+\end{frame}
+
+% Seção 5: Futuro do Produto
+\section{Roadmap e Visão de Futuro}
+\begin{frame}{Por que investir na Jumpers?}
+  \begin{itemize}
+    \item \textbf{Evolução Escalável:} Transição de uma célula única para múltiplas células, formando palavras completas.
+    \item \textbf{Reconhecimento de Voz Offline:} Substituição para o ESP32-S3, rodando Inteligência Artificial embarcada (Edge AI) sem depender de nuvem.
+    \item \textbf{Aprimoramento Mecânico:} Substituição de servos por atuadores piezoelétricos, diminuindo tamanho e ruído.
+    \item \textbf{Impacto Social e Lucratividade:} Um mercado inexplorado que une acessibilidade e tecnologia escalável.
+  \end{itemize}
+\end{frame}
+
+% Slide de Encerramento
+\begin{frame}
+  \centering
+  \Huge \textbf{Obrigado!}\\
+  \vspace{1cm}
+  \Large \textbf{Equipe Jumpers}\\
+  \normalsize jumpersltda@gmail.com
+\end{frame}
+
+\end{document}
