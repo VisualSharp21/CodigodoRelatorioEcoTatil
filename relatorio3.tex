@@ -1,0 +1,267 @@
+\documentclass[12pt, a4paper]{article}
+
+% Pacotes essenciais
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx} 
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{hyperref}
+\usepackage{booktabs} 
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{array} 
+\usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção
+\usepackage{float}
+
+\begin{document}
+
+% --- CAPA CUSTOMIZADA ---
+\begin{titlepage}
+    \centering
+    \vspace*{-1.5cm}
+    
+    % === LOGO DA UFPA NO TOPO ===
+    \includegraphics[width=0.25\textwidth]{channels4_profile.jpg} \\
+    \vspace{0.5cm}
+    
+    {\large \textbf{Universidade Federal do Pará (UFPA)} \par}
+    {\large \textbf{Engenharia da Computação} \par}
+    
+    \vspace{2.5cm}
+    
+    {\Large \textbf{Relatório Final do Projeto EcoTátil} \par}
+    \vspace{0.5cm}
+    {\large Entendimento, Visualização, Desenvolvimento, Simulações e Prototipagem \par}
+    
+    \vspace{2.5cm}
+    
+    {\large \textbf{Jumpers - Alfabetização em Braille Tecnologia Assistiva} \par}
+    \vspace{0.5cm}
+    {\normalsize \textbf{Equipe:} Marcelo Arbage, Theo Mello, Thiago Araujo e Rafael Collares \par}
+    
+    \vspace{1.5cm}
+    
+    % === LOGO DA EMPRESA ABAIXO DOS TEXTOS ===
+    \includegraphics[width=0.5\textwidth]{Logo.jpeg} \\
+    
+    \vfill
+    
+\end{titlepage}
+
+% --- CORPO DO RELATÓRIO ---
+
+\section{A Equipe -- Empresa}
+
+\subsection{Nome da Empresa}
+Jumpers - Alfabetização em Braille Tecnologia Assistiva
+
+\subsection{Logomarca}
+A logomarca oficial da empresa encontra-se ilustrada na capa deste documento.
+
+\subsection{Endereço e Contatos Fictícios}
+A sede da empresa localiza-se na Rua Augusto Corrêa, 1, Guamá, Belém. O contato para correspondências eletrônicas pode ser realizado através do e-mail jumpersltda@gmail.com, e o atendimento telefônico ocorre pelo número (91) 97394-9524.
+
+\subsection{Organograma Linear de Responsabilidades}
+
+\vspace{0.5cm}
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{|l|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+\hline
+\textbf{ATIVIDADE} & \textbf{MARCELO} & \textbf{THEO} & \textbf{THIAGO} & \textbf{RAFAEL} \\ \hline
+Hardware            & $\bigcirc$ & $\square$  & $\nabla$   & $\nabla$  \\ \hline
+Modelagem 3D        & $\bigcirc$   & $\nabla$   & $\square$  & $\nabla$  \\ \hline
+Integração/Testes   & $\nabla$   & $\square$ & $\nabla$   & $\bigcirc$  \\ \hline
+Software            & $\nabla$   & $\nabla$   & $\bigcirc$ & $\square$ \\ \hline
+Planilha            & $\bigcirc$   & $\nabla$   & $\nabla$   & $\square$ \\ \hline
+Relatório           & $\square$  & $\nabla$   & $\nabla$   & $\nabla$ \\ \hline
+Slides              & $\bigcirc$   & $\bigcirc$   & $\bigcirc$   & $\bigcirc$  \\ \hline
+\end{tabularx}
+
+\vspace{0.5cm}
+
+\begin{tabular}{|l|c|}
+\hline
+\multicolumn{2}{|c|}{\textbf{LEGENDA}} \\ \hline
+Executa   & $\bigcirc$  \\ \hline
+Participa & $\nabla$    \\ \hline
+Controla  & $\square$   \\ \hline
+\end{tabular}
+
+\caption{Organograma Linear de Responsabilidades da Empresa}
+\label{tab:matriz_responsabilidades}
+\end{table}
+
+\newpage
+\section{Da Ideia ao Produto}
+
+O produto é idealizado pela Jumpers para suprir a necessidade de pessoas com deficiência visual e garantir autonomia no que tange à alfabetização em Braille. O objetivo é tornar o hábito da leitura plenamente acessível, expandindo a capacidade de compreensão para além da audição através de uma interface amigável que garanta um aprendizado pleno.
+
+\subsection{Viabilidade Técnica e Vantagens}
+A implementação deste projeto é viável graças ao uso de microcontroladores como o ESP32S, que possuem capacidade de processamento suficiente para executar algoritmos de mapeamento e controlar atuadores. O desenvolvimento segue o fluxo consagrado da engenharia: pesquisa inicial, modelagem em ambiente de simulação, testes em protoboard e montagem final do módulo físico.
+
+O dispositivo destaca-se por promover um aprendizado multimodal. Diferentemente de leitores de tela exclusivamente sonoros, o EcoTátil oferece saídas táteis e auditivas simultâneas, o que é comprovadamente mais eficaz para a alfabetização completa. Além disso, apresenta baixo custo e portabilidade, uma vez que, ao utilizar componentes de mercado e estrutura modular, o produto torna-se acessível para instituições de ensino e para o usuário final.
+
+\section{Fase 1 (Entrega 1): Entendimento do Problema e Visualização do Produto}
+
+Nesta fase, a meta é desenvolver a ideia para resolver o problema proposto, mapeando o funcionamento lógico e os recursos vitais da solução tecnológica.
+
+\subsection{Como pensamos em desenvolvê-lo?}
+Para o desenvolvimento do sistema, a solução foi dividida em blocos funcionais. O primeiro bloco compreende a interface de entrada e saída, responsável pela captura do sinal de áudio com o caractere desejado e pelo fornecimento de feedback sonoro, integrando um módulo de microfone e um módulo de áudio. O segundo bloco trata do processamento e da lógica, realizando a identificação do caractere e a execução do mapeamento para o padrão de pontos Braille através de uma tabela de consulta implementada no microcontrolador. O terceiro bloco abrange a integração de hardware, que realiza o acionamento físico da célula Braille via micro servomotores dispostos em uma matriz de três por dois, garantindo o relevo tátil para o usuário.
+
+\subsection{Recursos necessários para a viabilização da solução}
+Para a viabilização da solução, os componentes e materiais essenciais englobam o ESP32S, micro servomotores, módulo de reconhecimento de voz, alto-falante, placa PCA9685 para auxiliar o ESP32S na comunicação com os micro servos, o módulo regulador de tensão LM2596 para ajustar a tensão (5v) que a associação entre as duas Baterias 18650 fornece, o módulo DFPlayer Mini, para cadastrar (por meio de um cartão MicroSD) os áudios das letras que o cliente desejar,  estrutura em impressão 3D e placa PCB. Os encontros para reuniões e desenvolvimento ocorrem remotamente via Discord e presencialmente nos laboratórios da UFPA. Além disso, os simuladores adotados para o projeto incluem o VS Code para a escrita do código, o Wokwi para realizar simulações específicas (pois o mesmo
+possue limitação quanto aos componentes usáveis), o Fritzing pra realizar a esquematização do circuito e o KiCad para o layout da PCB e modelagem 3D.
+
+\subsection{Produto Mínimo Viável (MVP)}
+O MVP do projeto EcoTátil consiste em uma unidade funcional de célula Braille única. O objetivo é validar o ciclo completo de conversão: inserção da letra desejada, processamento e resposta física. O protótipo utiliza seis pontos acionados de forma independente, respeitando as dimensões padrão do sistema Braille.
+
+A interação ocorre de maneira multimodal. Ao inserir uma letra, o sistema a identifica e eleva os pinos correspondentes. Para segurança e reforço pedagógico, o dispositivo conta com uma etapa de verificação auditiva imediata. A eletrônica será protegida por um gabinete ergonômico impresso em 3D, garantindo a suavidade no toque e a estabilidade das conexões elétricas necessárias para o acionamento dos motores.
+
+\subsection{Cronograma de Atividades}
+\vspace{0.5cm}
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|c|c|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Período} & \textbf{Semanas} & \textbf{Atividade (Projeto EcoTátil)} \\ \hline
+16/05 a 29/05 & 1 e 2 & \textbf{Fase 1: Modelagem e Testes de Código.} Montagem do circuito no Fritzing e no Wokwi, uso do VsCode para testes de código. \\ \hline
+01/06 a 05/06 & 3 & \textbf{Fase 2: Coleta de Dados Virtuais e Esquematização.} Coleta de resultados da simulação virtual e esquematização do circuito físico. \\ \hline
+08/06 a 12/06 & 4 & \textbf{Fase 3: Integração.} Ajustes no mapeamento Braille e correção de bugs. \\ \hline
+15/06 a 19/06 & 5 & \textbf{Fase 4: Entrega 2.} Testes físicos com ESP32S, servos e módulos necessários e envio do relatório parcial (apenas sobre a simulação virtual, como requisitado). \\ \hline
+22/06 a 03/07 & 6 e 7 & \textbf{Fase 5: Layout e Gabinete.} Montagem final do circuito na Protoboard, e início da criação da Placa PCB e do recipiente 3D que resguardará o circuito. \\ \hline
+06/07 a 10/07 & 8 & \textbf{Fase 6: Preparação.} Slides comerciais e treinamento da equipe. \\ \hline
+13/07 a 17/07 & 9 & \textbf{Fase 7: Entrega Final.} Apresentação e fechamento do relatório técnico. \\ \hline
+\end{tabularx}
+\caption{Cronograma de atividades do projeto}
+\label{tab:cronograma}
+\end{table}
+
+\newpage
+\section{Fase 2 (Entrega 2): Desenvolvimento, Simulações e Testes de Hardware}
+
+\subsection{Introdução ao Desenvolvimento}
+Nesta segunda fase do projeto EcoTátil, a empresa Jumpers avança da concepção teórica para a implementação prática e validação do sistema. O objetivo principal desta etapa é demonstrar a viabilidade técnica da célula Braille eletromecânica através de modelagem em software, garantindo que o mapeamento lógico e o acionamento físico operem em total sincronia. A construção virtual permite antecipar falhas elétricas e refinar o código antes da montagem final na protoboard. Outro avanço significativo do projeto é que a empresa já possui os componentes físicos necessários para a montagem do circuito, os quais já foram devidamente testados pela equipe responsável pelo hardware, e após a realização dos testes de integridade, a mesma equipe já iniciou a sua integração física no circuito.
+
+\subsection{Modelagem do Sistema e Indicações Técnicas}
+A modelagem do circuito eletrônico e a validação do código foram realizadas utilizando a plataforma de simulação Wokwi. O núcleo do sistema baseia-se no microcontrolador ESP32, escolhido por sua robustez, ampla documentação e conectividade nativa. Para representar a matriz de pontos da célula Braille, foram utilizados seis micro servomotores dispostos logicamente em três linhas e duas colunas. Cada servomotor foi conectado a um pino digital com suporte à modulação por largura de pulso (PWM) do ESP32, permitindo um controle preciso do ângulo de elevação. Na arquitetura técnica definida, a posição de zero grau de cada servo representa o pino Braille recolhido, enquanto o deslocamento para noventa graus simula a elevação do ponto tátil. A alimentação do circuito no ambiente virtual foi estruturada de forma a compartilhar o aterramento comum entre todos os atuadores e a placa controladora. Para fins de validação do processamento de entrada nesta fase, o módulo de reconhecimento de voz e o feedback de áudio foram abstraídos através da comunicação serial. O envio de caracteres via monitor serial do simulador emula o processamento do sinal de voz, acionando as rotinas internas de mapeamento lógico para a ativação correspondente dos servos.
+
+% === INSIRA O PRINT DO SEU CIRCUITO DO Wokwi AQUI ===
+\begin{figure}[H]
+    \centering
+     \includegraphics[width=0.8\textwidth]{circuitowokwi.png} 
+    \caption{Esquema elétrico do circuito modelado no Wokwi.}
+    \label{fig:circuito1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+     \includegraphics[width=0.8\textwidth]{wokwiM.png} 
+    \caption{Exemplo da simulação com a letra M.}
+    \label{fig:circuito2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+     \includegraphics[width=0.8\textwidth]{wokwiA.png} 
+    \caption{Exemplo da simulação com a letra A.}
+    \label{fig:circuito3}
+\end{figure}
+
+
+
+
+\subsection{Realização das Simulações e Observação dos Resultados}
+O protocolo de testes consistiu no envio sequencial dos caracteres do alfabeto para verificar a correspondência exata com o padrão Braille internacional. Os resultados iniciais comprovaram o funcionamento adequado da tabela de consulta programada no código. Ao inserir a letra correspondente no sistema, os servos designados realizaram o movimento angular de forma instantânea e simultânea, formando o arranjo físico correto na matriz. A observação do comportamento do sistema destacou uma excelente responsividade do ESP32 no processamento das variáveis de controle. O retorno das posições para o estado de repouso após a leitura de um novo caractere também ocorreu sem atrasos perceptíveis, o que é um fator crucial para garantir a fluidez do aprendizado e a correta interpretação tátil pelo usuário final.
+
+\subsection{Ajustes e Melhorias Implementadas}
+Embora na primeira entrega tenha sido relatado que utilizaríamos o microcontrolador Arduino, no decorrer do desenvolvimento percebemos a necessidade de alterar a arquitetura do projeto. A equipe decidiu implementar uma integração do sistema com um banco de dados na nuvem, onde estarão armazenadas as letras do alfabeto e suas correspondentes em Braille. Devido a essa necessidade de conectividade com a internet, o Arduino tornou-se inviável, motivando a migração para o microcontrolador ESP32, que possui módulo Wi-Fi integrado e se mostrou mais adequado para cumprir essa função.
+
+Entretanto, essa mudança de hardware gerou um novo desafio: o simulador que havíamos escolhido (Tinkercad) não possuía o ESP32 em sua biblioteca de componentes. Por conta dessa alteração, optamos por usar a plataforma de simulação Wokwi, que oferece suporte completo a essa placa. Com essa configuração estabelecida, foi possível realizar os testes, todavia, o simulador não possui suporte completo para os outros componentes que a empresa utilizou no circuito, de forma que a simulação ficou limitada a atuação do ESP32S com os micro servomotores, apenas. Além do Wokwi para realizar a simulação virtual, utiliamos o Fritzing, um software execlente para realizar  a esquematização do circuito, visto que ele possui todos os componentes que integramos ao projeto, porém o dito cujo possui a limitação de não ser um simulador, apenas um esquematizador para o produto.
+
+\paragraph{Simplificação da interface de entrada.} Considerando a complexidade do reconhecimento de voz frente ao escopo e ao prazo do projeto, a etapa de aquisição por áudio foi simplificada para a entrada direta do caractere via teclado. Trata-se de uma opção de projeto, e não de uma falha: o núcleo do sistema --- o mapeamento do caractere para o padrão Braille e o respectivo acionamento da célula --- permanece plenamente funcional. O módulo de reconhecimento de voz fica indicado como evolução futura, bastando integrá-lo à entrada já existente para restaurar a aquisição sonora. Ressalta-se que a saída em áudio (via DFPlayer Mini e alto-falante), que reproduz a letra formada, é mantida.
+
+% =====================================================================
+%  ENTREGA FINAL (FASE 3 / ENTREGA 3)
+%  Procure por "% PREENCHER" para achar o que ainda depende de você.
+% =====================================================================
+
+\newpage
+\section{Fase 3 (Entrega 3): Montagem Física, Prototipagem e Custos}
+
+\subsection{Introdução à Etapa Final}
+Nesta fase de finalização do projeto EcoTátil, a empresa Jumpers concretiza a transição da validação virtual para o produto físico funcional. Após a confirmação da lógica de mapeamento em ambiente de simulação, a equipe realizou a montagem do circuito em protoboard, o projeto da placa de circuito impresso (PCI) e a confecção do gabinete em impressão 3D. Esta seção consolida os resultados obtidos, a lista de material e o custo estimado da solução.
+
+\subsection{Montagem Física na Protoboard e Testes de Integração}
+Concluída a validação virtual, o circuito foi transferido para a protoboard, integrando o ESP32-S, a placa PCA9685 (responsável por gerar os sinais PWM para os seis micro servomotores) e o módulo regulador LM2596, alimentado pela associação em série das duas baterias 18650. A montagem em protoboard teve como objetivo testar todos os componentes antes da soldagem na placa de circuito impresso. Inicialmente, os servomotores foram testados fora de posição, apenas para validar o acionamento; em testes mais recentes, foram reposicionados respeitando o espaçamento padrão da célula Braille.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/protoboard.png}
+    \caption{Montagem do circuito EcoTátil na protoboard.}
+    \label{fig:protoboard}
+\end{figure}
+
+Os resultados físicos corresponderam ao planejado: os servomotores acionaram-se na sequência correta esperada. Houve uma dificuldade inicial na sincronização dos movimentos, porém ela foi resolvida rapidamente durante os ajustes.
+
+\subsection{Layout da PCI e Gabinete em Impressão 3D}
+Com o funcionamento validado na protoboard, elaboramos o layout da placa de circuito impresso (PCI) na plataforma KiCad, com o objetivo de reduzir o tamanho do conjunto e as interferências causadas pelos jumpers. O roteamento das trilhas apresentou certa complexidade, com dificuldades relacionadas à falta de continuidade em alguns pontos e à ocorrência de curtos-circuitos, que foram posteriormente corrigidos. Optou-se por definir todo o plano da placa como GND (aterramento), reservando as trilhas para a distribuição da alimentação de 5\,V e dos sinais de controle.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figuras/PCBkicad.jpeg}
+    \caption{Layout da PCI projetada no KiCad.}
+    \label{fig:pcb}
+\end{figure}
+
+Paralelamente, foi modelado o gabinete ergonômico em impressão 3D, que abriga a placa e expõe apenas a matriz de pinos da célula Braille ao toque do usuário. Quando o usuário define a letra desejada, os motores correspondentes se elevam para exibir o caractere em Braille. O modelo foi projetado no software Autodesk Fusion, que oferece diversas ferramentas de modelagem 3D adequadas à nossa aplicação.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figuras/gabinete3s.jpeg}
+    \caption{Modelo do gabinete em impressão 3D.}
+    \label{fig:gabinete}
+\end{figure}
+
+\subsection{Lista de Material e Custo Estimado do Projeto}
+A Tabela \ref{tab:custos} apresenta a lista de material (\textit{Bill of Materials}) e o custo estimado do protótipo. % PREENCHER: substitua os preços de referência pelas cotações reais.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|c|c|c|}
+\hline
+\textbf{Componente} & \textbf{Qtd.} & \textbf{Preço unit. (R\$)} & \textbf{Subtotal (R\$)} \\ \hline
+ESP32-S DevKit                     & 1 & 55,00 & 55,00  \\ \hline
+Micro servomotor SG90              & 6 & 15,00 & 90,00  \\ \hline
+Placa PCA9685 (driver PWM)         & 1 & 30,00 & 30,00  \\ \hline
+Regulador \textit{step-down} LM2596 & 1 & 12,00 & 12,00  \\ \hline
+Módulo DFPlayer Mini               & 1 & 20,00 & 20,00  \\ \hline
+Alto-falante 8\,$\Omega$           & 1 & 10,00 & 10,00  \\ \hline
+Bateria 18650                      & 2 & 25,00 & 50,00  \\ \hline
+Suporte para 2 baterias 18650      & 1 & 10,00 & 10,00  \\ \hline
+Cartão MicroSD                     & 1 & 25,00 & 25,00  \\ \hline
+Fabricação da PCI                  & 1 & 40,00 & 40,00  \\ \hline
+Filamento para impressão 3D (uso)  & 1 & 25,00 & 25,00  \\ \hline
+Protoboard + jumpers               & 1 & 40,00 & 40,00  \\ \hline
+\multicolumn{3}{|r|}{\textbf{TOTAL ESTIMADO}} & \textbf{407,00} \\ \hline
+\end{tabularx}
+\caption{Lista de material e custo estimado do projeto (valores de referência --- confirmar cotação).}
+\label{tab:custos}
+\end{table}
+
+\subsection{Análise Consolidada dos Resultados}
+Os resultados da simulação em Wokwi, que comprovaram a correspondência correta entre os caracteres inseridos e o padrão Braille internacional, foram confirmados na montagem física. O comportamento físico coincidiu com o observado na simulação: ao digitar a letra no teclado do computador, o dispositivo emitiu o som correspondente e elevou os pinos corretos, formando o caractere em Braille conforme o planejado.
+Vale destacar as limitações assumidas como \textit{opções de projeto}: a simulação restringiu-se à atuação do ESP32-S com os micro servomotores, uma vez que o Wokwi não oferece suporte aos demais módulos (DFPlayer e PCA9685), os quais foram validados diretamente em bancada. Ressalta-se ainda que o Fritzing, embora contemple todos os componentes do projeto, foi utilizado apenas para a esquematização do circuito, não permitindo a validação do comportamento elétrico por simulação.
+
+\subsection{Perspectivas de Evolução do Produto}
+Como evolução da solução, a Jumpers vislumbra: a expansão da célula única para um arranjo de múltiplas células, permitindo a leitura de palavras completas; a substituição dos micro servomotores por atuadores piezoelétricos ou solenoides, reduzindo ruído, consumo e dimensões; a reintegração da entrada por voz, agora de forma \textit{offline}, por meio de um microcontrolador mais potente, capaz de executar um modelo de inteligência artificial embarcado. Um candidato natural é o ESP32-S3, que oferece aceleração de hardware para tarefas de IA e suporte a reconhecimento de comandos de voz sem depender de conexão com a nuvem; e o refinamento ergonômico do gabinete a partir de testes com usuários do setor de Braille da Biblioteca Central da UFPA.
+
+\newpage
+\section{Considerações Finais}
+O projeto EcoTátil demonstrou a viabilidade técnica e econômica de uma célula Braille eletrônica e interativa voltada à alfabetização de pessoas com deficiência visual. As etapas de simulação, montagem física e prototipagem confirmaram o atendimento aos requisitos essenciais do produto: a transdução do caractere para o símbolo Braille, a formação do relevo tátil na célula e a geração da saída em áudio correspondente. Ao longo do desenvolvimento, a equipe aprimorou competências de trabalho colaborativo, de projeto e fabricação de placas de circuito impresso e de programação de microcontroladores. O resultado final correspondeu ao esperado, cumprindo tanto o objetivo técnico --- o protótipo físico funcional --- quanto o propósito social de promover a acessibilidade.
+
+\end{document}
